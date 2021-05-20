@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Footer from "../Footer"
+import Spinner from "./Spinner"
 import Nav from "./Nav"
 import axios from "axios"
 class Google extends Component {
@@ -18,7 +19,7 @@ class Google extends Component {
          axios.get(`${google_url}key=${api_key}&cx=${context_key}&q=${word_value}`)
             .then(res => {
                 this.setState({googleresult: res.data.items})
-                console.log(word_value)
+                console.log(res.data)
             })
             .catch(error => {
                 console.log(error)
@@ -28,37 +29,42 @@ class Google extends Component {
     render() {
         const data = this.state.googleresult;
         const word_value = this.props.location.state.word;
-        return (
-            <>
-            <Nav/>
-                <div>
-                    <section className="how">
-                        <div>
-                            <a href={`https://translate.google.com/?sl=en&tl=en&text=${word_value}&op=translate`}>
-                                <h4 data-aos="flip-left" data-aos-delay="100">How to pronounce  {word_value}</h4>
-                            </a>
-                        </div>
-                    </section>
-               <section className="results">
-                {data.map(item => {
-                    return (
-                        <div className="google_result">
-                            <a className="search_link"  href={item.link}>
-                                <h5>{item.displayLink}</h5>
-                            </a>
-                            <a className="search_title" href={item.link}>
-                                <h4>{item.title}</h4>
-                            </a>
-                            <p className="search_spippets">{item.snippet}</p>
-                        </div>
-                        )
-                   })}
-               </section>
-                </div>
-                <Footer/>
-            </>
-         );
+        if (data === undefined || data.length === 0) {
+            return <Spinner/>
+        } else {
+            return (
+                <>
+                    <Nav />
+                    <div>
+                        <section className="how">
+                            <div>
+                                <a href={`https://translate.google.com/?sl=en&tl=en&text=${word_value}&op=translate`}>
+                                    <h4 data-aos="flip-left" data-aos-delay="100">How to pronounce a word {word_value}</h4>
+                                </a>
+                            </div>
+                        </section>
+                        <section className="results">
+                            {data.map(item => {
+                                return (
+                                    <div className="google_result">
+                                        <a className="search_link" href={item.link}>
+                                            <h5>{item.displayLink}</h5>
+                                        </a>
+                                        <a className="search_title" href={item.link}>
+                                            <h4>{item.title}</h4>
+                                        </a>
+                                        <p className="search_spippets">{item.snippet}</p>
+                                 </div>
+                                )
+                            })}
+                        </section>
+                    </div>
+                    <Footer />
+                </>
+            );
+        }
     }
+
 }
- 
+       
 export default Google;

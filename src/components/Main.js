@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Carousel from 'react-multi-carousel';
+import Footer from "../Footer"
 import "react-multi-carousel/lib/styles.css";
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
@@ -1042,6 +1043,7 @@ class Main extends Component {
                             })}
                         </div>
                     </Carousel>
+                    <Footer/>
                     </>
             );
         }
