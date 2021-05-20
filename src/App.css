@@ -61,6 +61,10 @@ nav ul li{
     color: rgb(255, 102, 0);
     margin: 0 1rem;
 }
+    .icons_footer .fab{
+    color: rgb(255, 102, 0);
+    margin: 0 1rem; 
+    }
 
 .library{
     height: 100vh;
@@ -125,6 +129,7 @@ p {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin: 2rem 0;
     height: 10vh;
 }
 

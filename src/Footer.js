@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div className="footer">
             <h4>Word Finder</h4>
-            <section className="icons">
+            <section className="icons_footer">
                 <i className="fab fa-twitter"></i>
                 <i className="fab fa-github"></i>
                 <i className="fab fa-instagram"></i>
