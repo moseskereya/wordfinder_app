@@ -19,8 +19,11 @@ function Header() {
                     </Link>
                 </ul>
                 <section className="icons">
-                    <i className="fab fa-twitter"></i>
-                    <i className="fab fa-github"></i>
+                    <i className="fab fa-twitter">
+                    </i>
+                    <a href="https://github.com/moseskereya">
+                        <i className="fab fa-github"></i>
+                    </a>
                     <i className="fab fa-instagram"></i>
                 </section>
             </nav>

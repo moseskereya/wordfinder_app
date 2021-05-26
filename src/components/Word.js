@@ -13,8 +13,8 @@ class Word extends Component {
             StartsWith: "",
             EndsWith: "",
             Include: "",
-            WordMaxLength: '',
-            WordMinLength: '',
+            WordMaxLength: 15,
+            WordMinLength: 2,
             WordsList: [],
             isadata: false
         }
@@ -41,9 +41,9 @@ class Word extends Component {
         if (isadata === false && WordsList.length === 0) {
             return (
                 <>
-                    <section className="nav_header">
-                        <Nav />
-                    </section>
+                <section className="nav_header">
+                <Nav />
+                </section>
                 <section className="words">
                     <section className="formsection">
                         <Link to="/">

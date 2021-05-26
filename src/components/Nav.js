@@ -8,7 +8,9 @@ class Nav extends Component {
     render() { 
         return (
             <div className="word_nav">
-                <h5>WordFinder</h5>
+                <Link to="/" className="links">
+                    <h5 className="title">WordFinder</h5>
+                </Link>
                 <ul>
                     <Link to="/" className="links">
                         <li>Home</li>
